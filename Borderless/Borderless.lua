@@ -60,3 +60,9 @@ MainMenuBarArtFrame.PageNumber:Hide();
 
 --Remove border/styling around bag+menubar
 MicroButtonAndBagsBar.MicroBagBar:Hide();
+
+--Removes border around minimap
+MinimapBorder:Hide();
+MinimapBorderTop:Hide();
+MiniMapWorldMapButton:Hide();
+GameTimeFrame:Hide();
