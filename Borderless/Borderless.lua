@@ -34,3 +34,10 @@ FocusFrame:SetUserPlaced(true);
 FocusFrame:StopMovingOrSizing();
 FocusFrame:SetMovable(false);
 FocusFrameTextureFrameTexture:Hide();
+
+--Bags
+CharacterBag0Slot:Hide();
+CharacterBag1Slot:Hide();
+CharacterBag2Slot:Hide();
+CharacterBag3Slot:Hide();
+MainMenuBarBackpackButton:Hide();
