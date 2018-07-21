@@ -57,3 +57,6 @@ MainMenuBarArtFrameBackground:Hide();
 ActionBarUpButton:Hide();
 ActionBarDownButton:Hide();
 MainMenuBarArtFrame.PageNumber:Hide();
+
+--Remove border/styling around bag+menubar
+MicroButtonAndBagsBar.MicroBagBar:Hide();
