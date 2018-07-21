@@ -35,6 +35,14 @@ FocusFrame:StopMovingOrSizing();
 FocusFrame:SetMovable(false);
 FocusFrameTextureFrameTexture:Hide();
 
+-- Position, scale and style the casting bar
+CastingBarFrame.Border:Hide();
+CastingBarFrame:SetSize(250,25);
+CastingBarFrame.Text:SetPoint("TOP", CastingBarFrame, 0, -4);
+CastingBarFrame:ClearAllPoints();
+CastingBarFrame:SetPoint("TOP", WorldFrame, "BOTTOM", 0, 125);
+CastingBarFrame.SetPoint = function() end
+
 --Bags
 CharacterBag0Slot:Hide();
 CharacterBag1Slot:Hide();
