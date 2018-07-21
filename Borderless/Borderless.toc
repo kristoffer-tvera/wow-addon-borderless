@@ -1,0 +1,6 @@
+## Interface: 80000
+## Title: Borderless
+## Version: v1.0
+## Notes: Borders? No thanks.
+Borderless.lua
+Borderless_config.xml
