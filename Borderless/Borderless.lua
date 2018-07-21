@@ -196,3 +196,16 @@ MultiBarRightButton12NormalTexture:Hide();
 	-- Console.WriteLine($"MultiBarLeftButton{i}FloatingBG:Hide();");
 	-- Console.WriteLine($"MultiBarLeftButton{i}NormalTexture:Hide();");
 -- }
+
+
+-- Target Frame as class icon
+hooksecurefunc("UnitFramePortrait_Update",function(self)
+	if self.portrait then
+	  t=CLASS_ICON_TCOORDS[select(2,UnitClass(self.unit))]
+	  if t and UnitIsPlayer(self.unit) then
+		self.portrait:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles") self.portrait:SetTexCoord(unpack(t))
+	  else
+		self.portrait:SetTexCoord(0,1,0,1)
+	  end
+	end
+end);
