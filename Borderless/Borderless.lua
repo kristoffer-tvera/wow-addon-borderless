@@ -66,3 +66,7 @@ MinimapBorder:Hide();
 MinimapBorderTop:Hide();
 MiniMapWorldMapButton:Hide();
 GameTimeFrame:Hide();
+
+--Objective tracker
+ObjectiveTrackerBlocksFrame.QuestHeader.Background:Hide();
+ObjectiveTrackerBlocksFrame.AchievementHeader.Background:Hide();
