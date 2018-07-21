@@ -25,3 +25,12 @@ TargetFrame:SetMovable(false);
 TargetFrameTextureFrameTexture:Hide();
 TargetFrameSpellBar.Border:Hide();
 TargetFrameSpellBar:SetSize(103, 15);
+
+-- Position, scale, and style for FOCUS frame
+FocusFrame:ClearAllPoints();
+FocusFrame:SetPoint("TOPLEFT", 220, -200);
+FocusFrame:SetScale(1.5);
+FocusFrame:SetUserPlaced(true);
+FocusFrame:StopMovingOrSizing();
+FocusFrame:SetMovable(false);
+FocusFrameTextureFrameTexture:Hide();
