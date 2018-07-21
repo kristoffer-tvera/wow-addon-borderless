@@ -52,3 +52,8 @@ MainMenuBarBackpackButton:Hide();
 
 -- Remove border and style the actionbar
 MainMenuBarArtFrameBackground:Hide();
+
+--ActionBarPager (toggling of different actionbars)
+ActionBarUpButton:Hide();
+ActionBarDownButton:Hide();
+MainMenuBarArtFrame.PageNumber:Hide();
