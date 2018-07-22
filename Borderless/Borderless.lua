@@ -1,3 +1,36 @@
+--Check+Init globals
+if BorderlessDragons == nil then
+    BorderlessDragons = true;
+end
+
+if BorderlessPlayer == nil then
+    BorderlessPlayer = true;
+end
+
+if BorderlessTarget == nil then
+    BorderlessTarget = true;
+end
+
+if BorderlessPlayer == nil then
+    BorderlessPlayer = true;
+end
+
+if BorderlessFocus == nil then
+    BorderlessFocus = true;
+end
+
+if BorderlessActionbars == nil then
+    BorderlessActionbars = true;
+end
+
+if BorderlessMinimap == nil then
+    BorderlessMinimap = true;
+end
+
+if BorderlessMenu == nil then
+    BorderlessMenu = true;
+end
+
 -- Hide dragons on each side
 MainMenuBarArtFrame.LeftEndCap:Hide();
 MainMenuBarArtFrame.RightEndCap:Hide();
