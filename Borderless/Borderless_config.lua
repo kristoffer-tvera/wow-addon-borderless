@@ -1,20 +1,12 @@
 Borderless_config = {};
+local _, L = ...;
+
 Borderless_config.panel = CreateFrame( "Frame", "BorderlessConfigFrame", UIParent );
 -- Register in the Interface Addon Options GUI
 -- Set the name for the Category for the Options Panel
 Borderless_config.panel.name = "Borderless";
 -- Add the panel to the Interface Options
 InterfaceOptions_AddCategory(Borderless_config.panel);
-
--- myCheckButton = CreateFrame("CheckButton", "myCheckButton_GlobalName", Borderless.panel, "ChatConfigCheckButtonTemplate");
--- myCheckButton:SetPoint("TOPLEFT", 0, 0);
--- myCheckButton_GlobalNameText:SetText("CheckBox Name");
--- myCheckButton.tooltip = "This is where you place MouseOver Text.";
--- myCheckButton:SetScript("OnClick", 
---   function()
---     print( myCheckButton:GetChecked() );
---   end
--- );
 
 local unique = 0;
 function createCheckbutton(parent, displayname, tooltip)
@@ -29,7 +21,7 @@ function createCheckbutton(parent, displayname, tooltip)
 	return checkbutton;
 end
 
-Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, "No dragons/lions", "Remove the dragons around the actionbars");
+Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, L["No dragons/lions"], L["Remove the dragons around the actionbars"]);
 Borderless_config_dragonsCheckbox:SetChecked(BorderlessDragons);
 Borderless_config_dragonsCheckbox:SetScript("OnClick", 
     function()
@@ -38,7 +30,7 @@ Borderless_config_dragonsCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_actionBarsCheckbox = createCheckbutton(Borderless_config.panel, "No borders around actionbars", "Removes the borders around all the actionbar items");
+Borderless_config_actionBarsCheckbox = createCheckbutton(Borderless_config.panel, L["No borders around actionbars"], L["Removes the borders around all the actionbar items"]);
 Borderless_config_actionBarsCheckbox:SetChecked(BorderlessActionbars);
 Borderless_config_actionBarsCheckbox:SetScript("OnClick", 
     function()
@@ -47,7 +39,7 @@ Borderless_config_actionBarsCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, "No borders around minimap", "Removes the borders around the minimap");
+Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, L["No borders around minimap"], L["Removes the borders around the minimap"]);
 Borderless_config_miniMapCheckbox:SetChecked(BorderlessMinimap);
 Borderless_config_miniMapCheckbox:SetScript("OnClick", 
     function()
@@ -56,7 +48,7 @@ Borderless_config_miniMapCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_playerCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the playerframe", "Removes the border around the playerframe");
+Borderless_config_playerCheckbox = createCheckbutton(Borderless_config.panel, L["No borders around the playerframe"], L["Removes the border around the playerframe"]);
 Borderless_config_playerCheckbox:SetChecked(BorderlessPlayer);
 Borderless_config_playerCheckbox:SetScript("OnClick", 
     function()
@@ -65,7 +57,7 @@ Borderless_config_playerCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_targetCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the targetframe", "Removes the border around the targetframe");
+Borderless_config_targetCheckbox = createCheckbutton(Borderless_config.panel, L["No borders around the targetframe"], L["Removes the border around the targetframe"]);
 Borderless_config_targetCheckbox:SetChecked(BorderlessTarget);
 Borderless_config_targetCheckbox:SetScript("OnClick", 
     function()
@@ -74,7 +66,7 @@ Borderless_config_targetCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_focusCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the focusframe", "Removes the border around the focusframe");
+Borderless_config_focusCheckbox = createCheckbutton(Borderless_config.panel, L["No borders around the focusframe"], L["Removes the border around the focusframe"]);
 Borderless_config_focusCheckbox:SetChecked(BorderlessFocus);
 Borderless_config_focusCheckbox:SetScript("OnClick", 
     function()
@@ -83,7 +75,7 @@ Borderless_config_focusCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_castBarCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the focusframe", "Removes the border around the focusframe");
+Borderless_config_castBarCheckbox = createCheckbutton(Borderless_config.panel, L["No borders around the castbar"], L["Removes the border around the castbar"]);
 Borderless_config_castBarCheckbox:SetChecked(BorderlessFocus);
 Borderless_config_castBarCheckbox:SetScript("OnClick", 
     function()
@@ -92,7 +84,7 @@ Borderless_config_castBarCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_microMenuCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the micro game menu", "Remove the borders around the micro game menu");
+Borderless_config_microMenuCheckbox = createCheckbutton(Borderless_config.panel, L["No borders around the micro game menu"], L["Remove the borders around the micro game menu"]);
 Borderless_config_microMenuCheckbox:SetChecked(BorderlessMenu);
 Borderless_config_microMenuCheckbox:SetScript("OnClick", 
     function()
@@ -101,7 +93,7 @@ Borderless_config_microMenuCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_bagsCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the micro game menu", "Remove the borders around the micro game menu");
+Borderless_config_bagsCheckbox = createCheckbutton(Borderless_config.panel, L["Hide the bags"], L["Remove the bags over the ingame micro-menu line"]);
 Borderless_config_bagsCheckbox:SetChecked(BorderlessBags);
 Borderless_config_bagsCheckbox:SetScript("OnClick", 
     function()
@@ -110,7 +102,7 @@ Borderless_config_bagsCheckbox:SetScript("OnClick",
     end
 );
 
-Borderless_config_objectiveTrackerCheckbox = createCheckbutton(Borderless_config.panel, "Objective Tracker", "Removes the border and header column effects of the objective tracker");
+Borderless_config_objectiveTrackerCheckbox = createCheckbutton(Borderless_config.panel, L["Objective Tracker"], L["Removes the border and header column effects of the objective tracker"]);
 Borderless_config_objectiveTrackerCheckbox:SetChecked(BorderlessObjectiveTracker);
 Borderless_config_objectiveTrackerCheckbox:SetScript("OnClick", 
     function()

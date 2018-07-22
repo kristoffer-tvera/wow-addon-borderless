@@ -41,6 +41,7 @@ end
 
 
 Borderless = {};
+local _, L = ...;
 
 -- Hide dragons on each side
 function Borderless:Dragons(hide)
@@ -400,6 +401,10 @@ function Borderless:Actionbars(hide)
         -- Console.WriteLine($"MultiBarLeftButton{i}FloatingBG:Hide();");
         -- Console.WriteLine($"MultiBarLeftButton{i}NormalTexture:Hide();");
     -- }
+end
+
+function Borderless:Localizationdebug()
+    print(L["Hello World!"]);
 end
 
 Borderless:Dragons(BorderlessDragons);
