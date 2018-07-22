@@ -31,50 +31,50 @@ function createCheckbutton(parent, displayname, tooltip)
 	return checkbutton;
 end
 
-Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, "Test booly0", "mouseover0");
+Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, "No dragons/lions", "Remove the dragons around the actionbars");
 Borderless_config_dragonsCheckbox:SetScript("OnClick", 
     function()
         BorderlessDragons = Borderless_config_dragonsCheckbox:GetChecked();
     end
 );
 
-Borderless_config_actionBarsCheckbox = createCheckbutton(Borderless_config.panel, "Test booly", "mouseover1");
+Borderless_config_actionBarsCheckbox = createCheckbutton(Borderless_config.panel, "No borders around actionbars", "Removes the borders around all the actionbar items");
 Borderless_config_actionBarsCheckbox:SetScript("OnClick", 
     function()
         BorderlessActionbars = Borderless_config_actionBarsCheckbox:GetChecked();
     end
 );
-Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, "Test booly2", "mouseover2");
+Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, "No borders around minimap", "Removes the borders around the minimap");
 Borderless_config_miniMapCheckbox:SetScript("OnClick", 
     function()
         BorderlessMinimap = Borderless_config_miniMapCheckbox:GetChecked();
     end
 );
-Borderless_config_playerCheckbox = createCheckbutton(Borderless_config.panel, "Test booly3", "mouseover3");
+Borderless_config_playerCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the playerframe", "Removes the border around the playerframe");
 Borderless_config_playerCheckbox:SetScript("OnClick", 
     function()
         BorderlessPlayer = Borderless_config_playerCheckbox:GetChecked();
     end
 );
-Borderless_config_targetCheckbox = createCheckbutton(Borderless_config.panel, "Test booly4", "mouseover4");
+Borderless_config_targetCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the targetframe", "Removes the border around the targetframe");
 Borderless_config_targetCheckbox:SetScript("OnClick", 
     function()
         BorderlessTarget = Borderless_config_targetCheckbox:GetChecked();
     end
 );
-Borderless_config_focusCheckbox = createCheckbutton(Borderless_config.panel, "Test booly5", "mouseover5");
+Borderless_config_focusCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the focusframe", "Removes the border around the focusframe");
 Borderless_config_focusCheckbox:SetScript("OnClick", 
     function()
         BorderlessFocus = BorderBorderless_config_focusCheckboxless_config_dragonsCheckbox:GetChecked();
     end
 );
-Borderless_config_bagsMicroMenuCheckbox = createCheckbutton(Borderless_config.panel, "Test booly6", "mouseover6");
+Borderless_config_bagsMicroMenuCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the micro game menu", "Remove the borders around the micro game menu");
 Borderless_config_bagsMicroMenuCheckbox:SetScript("OnClick", 
     function()
         BorderlessMenu = Borderless_config_bagsMicroMenuCheckbox:GetChecked();
     end
 );
-Borderless_config_objectiveTrackerCheckbox = createCheckbutton(Borderless_config.panel, "Test booly7", "mouseover7");
+Borderless_config_objectiveTrackerCheckbox = createCheckbutton(Borderless_config.panel, "Objective Tracker", "Removes the border and header column effects of the objective tracker");
 Borderless_config_objectiveTrackerCheckbox:SetScript("OnClick", 
     function()
         BorderlessObjectiveTracker = Borderless_config_objectiveTrackerCheckbox:GetChecked();
