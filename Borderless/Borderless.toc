@@ -2,7 +2,7 @@
 ## Title: Borderless
 ## Version: v1.0
 ## Notes: Borders? No thanks.
-## SavedVariables: BorderlessDragons, BorderlessPlayer, BorderlessTarget, BorderlessFocus, BorderlessActionbars, BorderlessMinimap, BorderlessMenu, BorderlessObjectiveTracker
+## SavedVariables: BorderlessDragons, BorderlessPlayer, BorderlessTarget, BorderlessFocus, BorderlessActionbars, BorderlessMinimap, BorderlessMenu, BorderlessObjectiveTracker, BorderlessBags, BorderlessCastbar
 
 Borderless.lua
 Borderless_config.lua
