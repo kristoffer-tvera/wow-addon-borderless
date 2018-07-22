@@ -402,7 +402,6 @@ function Borderless:Actionbars(hide)
     -- }
 end
 
-
 Borderless:Dragons(BorderlessDragons);
 Borderless:Player(BorderlessPlayer);
 Borderless:Target(BorderlessTarget);
@@ -413,8 +412,6 @@ Borderless:Menu(BorderlessMenu);
 Borderless:Minimap(BorderlessMinimap);
 Borderless:Objectivetracker(BorderlessObjectiveTracker);
 Borderless:Actionbars(BorderlessActionbars);
-
-
 
 -- Target Frame as class icon
 hooksecurefunc("UnitFramePortrait_Update",function(self)

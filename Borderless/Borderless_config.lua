@@ -19,8 +19,6 @@ InterfaceOptions_AddCategory(Borderless_config.panel);
 local unique = 0;
 function createCheckbutton(parent, displayname, tooltip)
     local y_increment = -20;
-	
-	
 	local checkbutton = CreateFrame("CheckButton", "Borderless_config_checkbox_" .. unique, parent, "ChatConfigCheckButtonTemplate");
     checkbutton:SetPoint("TOPLEFT", 0, (y_increment * unique));
     -- checkbutton_GlobalNameText:SetText(displayname);
@@ -50,7 +48,7 @@ Borderless_config_actionBarsCheckbox:SetScript("OnClick",
 );
 
 Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, "No borders around minimap", "Removes the borders around the minimap");
-Borderless_config_actionBarsCheckbox:SetChecked(BorderlessMinimap);
+Borderless_config_miniMapCheckbox:SetChecked(BorderlessMinimap);
 Borderless_config_miniMapCheckbox:SetScript("OnClick", 
     function()
         BorderlessMinimap = Borderless_config_miniMapCheckbox:GetChecked();
