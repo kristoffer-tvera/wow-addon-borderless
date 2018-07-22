@@ -407,6 +407,7 @@ function Borderless:Actionbars(hide)
     -- }
 end
 
+--Class icons
 function Borderless:ClassIcon(hide)
     if hide then
         -- Target Frame as class icon
