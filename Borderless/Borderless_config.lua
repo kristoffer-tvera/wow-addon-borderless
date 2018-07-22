@@ -2,19 +2,18 @@ Borderless_config = {};
 local _, L = ...;
 local addonName = L["borderless"];
 local capitalizedAddonName = string.gsub(addonName, "(%w)", string.upper, 1); --Capitalize
+local y_increment = -25;
+local x_indentation = 5;
+local unique = 1;
 
 Borderless_config.panel = CreateFrame( "Frame", "BorderlessConfigFrame", UIParent );
--- Register in the Interface Addon Options GUI
--- Set the name for the Category for the Options Panel
 Borderless_config.panel.name = capitalizedAddonName;
--- Add the panel to the Interface Options
 InterfaceOptions_AddCategory(Borderless_config.panel);
 
-local unique = 0;
 function createCheckbutton(parent, displayname, tooltip)
-    local y_increment = -20;
-	local checkbutton = CreateFrame("CheckButton", "Borderless_config_checkbox_" .. unique, parent, "ChatConfigCheckButtonTemplate");
-    checkbutton:SetPoint("TOPLEFT", 0, (y_increment * unique));
+    
+	local checkbutton = CreateFrame("CheckButton", "BorderlessConfigFrameCheckbox" .. unique, parent, "ChatConfigCheckButtonTemplate");
+    checkbutton:SetPoint("TOPLEFT", x_indentation, (y_increment * unique));
     -- checkbutton_GlobalNameText:SetText(displayname);
     getglobal(checkbutton:GetName() .. 'Text'):SetText(displayname);
     checkbutton.tooltip = tooltip;
@@ -22,6 +21,22 @@ function createCheckbutton(parent, displayname, tooltip)
     unique = unique + 1;
 	return checkbutton;
 end
+
+function createTextFrame(parent, text, fontsize, heightMultiplier)
+    local fontFrame = CreateFrame("Frame", "BorderlessConfigFrameTextbox" .. unique, parent);
+    fontFrame:SetSize(600, fontsize * heightMultiplier);
+    fontFrame:SetPoint("TOPLEFT", x_indentation, (y_increment * unique));
+    fontFrame.text =
+    fontFrame:CreateFontString(nil,"ARTWORK");
+    fontFrame.text:SetAllPoints(true);
+    fontFrame.text:SetFont("Fonts\\FRIZQT__.TTF", fontsize);
+    fontFrame.text:SetText(text);
+
+    unique = unique + 1;
+    return fontFrame;
+end
+
+Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "-->> " .. capitalizedAddonName .. " <<--", 25, 1);
 
 Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, L["No dragons/lions"], L["Remove the dragons around the actionbars"]);
 Borderless_config_dragonsCheckbox:SetChecked(BorderlessDragons);
@@ -121,6 +136,11 @@ Borderless_config_classIconCheckbox:SetScript("OnClick",
         Borderless:ClassIcon(BorderlessClassIcon);
     end
 );
+
+local githubUrl = 'https://github.com/kristoffer-tvera/wow-addon-borderless';
+
+Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "Made by Esl of <Amused to Death> on EU-Defias Brotherhood", 16, 1);
+Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "For ideas, suggestions, issues, or help with translations, " .. githubUrl, 14, 3);
 
 -- Register a slashcommand to quickly modify settings
 SLASH_BORDERLESS1 = '/'..addonName;
