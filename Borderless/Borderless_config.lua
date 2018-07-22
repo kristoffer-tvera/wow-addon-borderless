@@ -34,43 +34,49 @@ end
 Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, "Test booly0", "mouseover0");
 Borderless_config_dragonsCheckbox:SetScript("OnClick", 
     function()
-        print('actionbars ' .. Borderless_config_dragonsCheckbox:GetChecked());
+        BorderlessDragons = Borderless_config_dragonsCheckbox:GetChecked();
     end
 );
 
 Borderless_config_actionBarsCheckbox = createCheckbutton(Borderless_config.panel, "Test booly", "mouseover1");
 Borderless_config_actionBarsCheckbox:SetScript("OnClick", 
     function()
-        print('actionbars ' .. Borderless_config_actionBarsCheckbox:GetChecked());
+        BorderlessActionbars = Borderless_config_actionBarsCheckbox:GetChecked();
     end
 );
 Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, "Test booly2", "mouseover2");
 Borderless_config_miniMapCheckbox:SetScript("OnClick", 
     function()
-        print('actionbars ' .. Borderless_config_miniMapCheckbox:GetChecked());
+        BorderlessMinimap = Borderless_config_miniMapCheckbox:GetChecked();
     end
 );
 Borderless_config_playerCheckbox = createCheckbutton(Borderless_config.panel, "Test booly3", "mouseover3");
 Borderless_config_playerCheckbox:SetScript("OnClick", 
     function()
-        print('actionbars ' .. Borderless_config_playerCheckbox:GetChecked());
+        BorderlessPlayer = Borderless_config_playerCheckbox:GetChecked();
     end
 );
 Borderless_config_targetCheckbox = createCheckbutton(Borderless_config.panel, "Test booly4", "mouseover4");
 Borderless_config_targetCheckbox:SetScript("OnClick", 
     function()
-        print('actionbars ' .. Borderless_config_targetCheckbox:GetChecked());
+        BorderlessTarget = Borderless_config_targetCheckbox:GetChecked();
     end
 );
 Borderless_config_focusCheckbox = createCheckbutton(Borderless_config.panel, "Test booly5", "mouseover5");
 Borderless_config_focusCheckbox:SetScript("OnClick", 
     function()
-        print('actionbars ' .. Borderless_config_focusCheckbox:GetChecked());
+        BorderlessFocus = BorderBorderless_config_focusCheckboxless_config_dragonsCheckbox:GetChecked();
     end
 );
 Borderless_config_bagsMicroMenuCheckbox = createCheckbutton(Borderless_config.panel, "Test booly6", "mouseover6");
 Borderless_config_bagsMicroMenuCheckbox:SetScript("OnClick", 
     function()
-        print('actionbars ' .. Borderless_config_bagsMicroMenuCheckbox:GetChecked());
+        BorderlessMenu = Borderless_config_bagsMicroMenuCheckbox:GetChecked();
+    end
+);
+Borderless_config_objectiveTrackerCheckbox = createCheckbutton(Borderless_config.panel, "Test booly7", "mouseover7");
+Borderless_config_objectiveTrackerCheckbox:SetScript("OnClick", 
+    function()
+        BorderlessObjectiveTracker = Borderless_config_objectiveTrackerCheckbox:GetChecked();
     end
 );
