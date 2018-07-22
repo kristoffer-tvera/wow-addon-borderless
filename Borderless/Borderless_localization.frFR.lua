@@ -20,5 +20,5 @@ if GetLocale() == "frFR" then
  L["Remove the bags over the ingame micro-menu line"] = "Remove the bags over the ingame micro-menu line";
  L["Objective Tracker"] = "Objective Tracker";
  L["Removes the border and header column effects of the objective tracker"] = "Removes the border and header column effects of the objective tracker";
- L["borderless"] = "borderless";
+ L["borderless"] = "borderless";  -- used for slashcommand and interface option panel name
 end

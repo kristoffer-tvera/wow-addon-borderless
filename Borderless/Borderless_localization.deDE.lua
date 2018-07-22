@@ -20,5 +20,7 @@ if GetLocale() == "deDE" then
  L["Remove the bags over the ingame micro-menu line"] = "Remove the bags over the ingame micro-menu line";
  L["Objective Tracker"] = "Objective Tracker";
  L["Removes the border and header column effects of the objective tracker"] = "Removes the border and header column effects of the objective tracker";
- L["borderless"] = "borderless";
+ L["Disabling this requires a ui reload. Try /reload, or just log out and back in again"] = "Disabling this requires a ui reload. Try /reload, or just log out and back in again";
+ L["Overwrite Player, Target and Focus portrait with class icon"] = "Overwrite Player, Target and Focus portrait with class icon";
+ L["borderless"] = "borderless"; -- used for slashcommand and interface option panel name
 end

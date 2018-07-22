@@ -1,10 +1,12 @@
 Borderless_config = {};
 local _, L = ...;
+local addonName = L["borderless"];
+local capitalizedAddonName = string.gsub(addonName, "(%w)", string.upper, 1); --Capitalize
 
 Borderless_config.panel = CreateFrame( "Frame", "BorderlessConfigFrame", UIParent );
 -- Register in the Interface Addon Options GUI
 -- Set the name for the Category for the Options Panel
-Borderless_config.panel.name = "Borderless";
+Borderless_config.panel.name = capitalizedAddonName;
 -- Add the panel to the Interface Options
 InterfaceOptions_AddCategory(Borderless_config.panel);
 
@@ -111,8 +113,17 @@ Borderless_config_objectiveTrackerCheckbox:SetScript("OnClick",
     end
 );
 
+Borderless_config_classIconCheckbox = createCheckbutton(Borderless_config.panel, L["Overwrite Player, Target and Focus portrait with class icon"], L["Overwrite portraits with class icon. Disabling this requires a reload"]);
+Borderless_config_classIconCheckbox:SetChecked(BorderlessClassIcon);
+Borderless_config_classIconCheckbox:SetScript("OnClick", 
+    function()
+        BorderlessClassIcon = Borderless_config_classIconCheckbox:GetChecked();
+        Borderless:ClassIcon(BorderlessClassIcon);
+    end
+);
+
 -- Register a slashcommand to quickly modify settings
-SLASH_BORDERLESS1 = '/borderless';
+SLASH_BORDERLESS1 = '/'..addonName;
 SlashCmdList["BORDERLESS"] = function(msg)
     InterfaceOptionsFrame_OpenToCategory(Borderless_config.panel);
 end 
