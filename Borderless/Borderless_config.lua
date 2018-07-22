@@ -32,51 +32,97 @@ function createCheckbutton(parent, displayname, tooltip)
 end
 
 Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, "No dragons/lions", "Remove the dragons around the actionbars");
+Borderless_config_dragonsCheckbox:SetChecked(BorderlessDragons);
 Borderless_config_dragonsCheckbox:SetScript("OnClick", 
     function()
         BorderlessDragons = Borderless_config_dragonsCheckbox:GetChecked();
+        Borderless:Dragons(BorderlessDragons);
     end
 );
 
 Borderless_config_actionBarsCheckbox = createCheckbutton(Borderless_config.panel, "No borders around actionbars", "Removes the borders around all the actionbar items");
+Borderless_config_actionBarsCheckbox:SetChecked(BorderlessActionbars);
 Borderless_config_actionBarsCheckbox:SetScript("OnClick", 
     function()
         BorderlessActionbars = Borderless_config_actionBarsCheckbox:GetChecked();
+        Borderless:Actionbars(BorderlessActionbars);
     end
 );
+
 Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, "No borders around minimap", "Removes the borders around the minimap");
+Borderless_config_actionBarsCheckbox:SetChecked(BorderlessMinimap);
 Borderless_config_miniMapCheckbox:SetScript("OnClick", 
     function()
         BorderlessMinimap = Borderless_config_miniMapCheckbox:GetChecked();
+        Borderless:Minimap(BorderlessMinimap);
     end
 );
+
 Borderless_config_playerCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the playerframe", "Removes the border around the playerframe");
+Borderless_config_playerCheckbox:SetChecked(BorderlessPlayer);
 Borderless_config_playerCheckbox:SetScript("OnClick", 
     function()
         BorderlessPlayer = Borderless_config_playerCheckbox:GetChecked();
+        Borderless:Player(BorderlessPlayer);
     end
 );
+
 Borderless_config_targetCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the targetframe", "Removes the border around the targetframe");
+Borderless_config_targetCheckbox:SetChecked(BorderlessTarget);
 Borderless_config_targetCheckbox:SetScript("OnClick", 
     function()
         BorderlessTarget = Borderless_config_targetCheckbox:GetChecked();
+        Borderless:Target(BorderlessTarget);
     end
 );
+
 Borderless_config_focusCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the focusframe", "Removes the border around the focusframe");
+Borderless_config_focusCheckbox:SetChecked(BorderlessFocus);
 Borderless_config_focusCheckbox:SetScript("OnClick", 
     function()
-        BorderlessFocus = BorderBorderless_config_focusCheckboxless_config_dragonsCheckbox:GetChecked();
+        BorderlessFocus = Borderless_config_focusCheckbox:GetChecked();
+        Borderless:Focus(BorderlessFocus);
     end
 );
-Borderless_config_bagsMicroMenuCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the micro game menu", "Remove the borders around the micro game menu");
-Borderless_config_bagsMicroMenuCheckbox:SetScript("OnClick", 
+
+Borderless_config_castBarCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the focusframe", "Removes the border around the focusframe");
+Borderless_config_castBarCheckbox:SetChecked(BorderlessFocus);
+Borderless_config_castBarCheckbox:SetScript("OnClick", 
     function()
-        BorderlessMenu = Borderless_config_bagsMicroMenuCheckbox:GetChecked();
+        BorderlessCastbar = Borderless_config_castBarCheckbox:GetChecked();
+        Borderless:Castbar(BorderlessCastbar);
     end
 );
+
+Borderless_config_microMenuCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the micro game menu", "Remove the borders around the micro game menu");
+Borderless_config_microMenuCheckbox:SetChecked(BorderlessMenu);
+Borderless_config_microMenuCheckbox:SetScript("OnClick", 
+    function()
+        BorderlessMenu = Borderless_config_microMenuCheckbox:GetChecked();
+        Borderless:Menu(BorderlessMenu);
+    end
+);
+
+Borderless_config_bagsCheckbox = createCheckbutton(Borderless_config.panel, "No borders around the micro game menu", "Remove the borders around the micro game menu");
+Borderless_config_bagsCheckbox:SetChecked(BorderlessBags);
+Borderless_config_bagsCheckbox:SetScript("OnClick", 
+    function()
+        BorderlessBags = Borderless_config_bagsCheckbox:GetChecked();
+        Borderless:Bags(BorderlessBags);
+    end
+);
+
 Borderless_config_objectiveTrackerCheckbox = createCheckbutton(Borderless_config.panel, "Objective Tracker", "Removes the border and header column effects of the objective tracker");
+Borderless_config_objectiveTrackerCheckbox:SetChecked(BorderlessObjectiveTracker);
 Borderless_config_objectiveTrackerCheckbox:SetScript("OnClick", 
     function()
         BorderlessObjectiveTracker = Borderless_config_objectiveTrackerCheckbox:GetChecked();
+        Borderless:Objectivetracker(BorderlessObjectiveTracker);
     end
 );
+
+-- Register a slashcommand to quickly modify settings
+SLASH_BORDERLESS1 = '/borderless';
+SlashCmdList["BORDERLESS"] = function(msg)
+    InterfaceOptionsFrame_OpenToCategory(Borderless_config.panel);
+end 
