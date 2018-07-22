@@ -146,4 +146,5 @@ Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "For ide
 SLASH_BORDERLESS1 = '/'..addonName;
 SlashCmdList["BORDERLESS"] = function(msg)
     InterfaceOptionsFrame_OpenToCategory(Borderless_config.panel);
+    InterfaceOptionsFrame_OpenToCategory(Borderless_config.panel);
 end 
