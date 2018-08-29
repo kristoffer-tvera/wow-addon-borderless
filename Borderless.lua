@@ -73,6 +73,7 @@ function Borderless:Player(hide)
         PlayerFrameAlternateManaBarRightBorder:Show();
         PlayerFrameAlternateManaBarBorder:Show();
         PlayerFrameTexture:SetAlpha(1);
+        PetFrameTexture:Show();
     end
 end
 
