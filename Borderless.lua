@@ -66,12 +66,13 @@ function Borderless:Player(hide)
         PlayerFrameAlternateManaBarRightBorder:Hide();
         PlayerFrameAlternateManaBarBorder:Hide();
         PlayerFrameTexture:SetAlpha(0);
+        PetFrameTexture:Hide();
     else
-        ComboPointPlayerFrame.Background:Hide();
-        PlayerFrameAlternateManaBarLeftBorder:Hide();
-        PlayerFrameAlternateManaBarRightBorder:Hide();
-        PlayerFrameAlternateManaBarBorder:Hide();
-        PlayerFrameTexture:SetAlpha(0);
+        ComboPointPlayerFrame.Background:Show();
+        PlayerFrameAlternateManaBarLeftBorder:Show();
+        PlayerFrameAlternateManaBarRightBorder:Show();
+        PlayerFrameAlternateManaBarBorder:Show();
+        PlayerFrameTexture:SetAlpha(1);
     end
 end
 
