@@ -39,6 +39,8 @@ end
 Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "-->> " .. capitalizedAddonName .. " <<--", 25, 1);
 
 local function LoadSettingsAndConfig()
+    Borderless_config.panel:UnregisterEvent("ADDON_LOADED");
+
     Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, L["No dragons/lions"], L["Remove the dragons around the actionbars"]);
     Borderless_config_dragonsCheckbox:SetChecked(BorderlessDragons);
     Borderless_config_dragonsCheckbox:SetScript("OnClick", 
