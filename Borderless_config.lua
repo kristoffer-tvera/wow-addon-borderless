@@ -136,7 +136,16 @@ local function LoadSettingsAndConfig()
     Borderless_config_classIconCheckbox:SetScript("OnClick", 
         function()
             BorderlessClassIcon = Borderless_config_classIconCheckbox:GetChecked();
-            Borderless:ClassIcon(BorderlessClassIcon);
+            Borderless:ClassIcon(BorderlessClassIcon, false);
+        end
+    );
+
+    Borderless_config_statusBarCheckbox = createCheckbutton(Borderless_config.panel, L["Status bar"], L["The bar below actionbars that shows xp, reputation, honor, azerite, etc"]);
+    Borderless_config_statusBarCheckbox:SetChecked(BorderlessStatusBar);
+    Borderless_config_statusBarCheckbox:SetScript("OnClick", 
+        function()
+            BorderlessStatusBar = Borderless_config_statusBarCheckbox:GetChecked();
+            Borderless:StatusBar(BorderlessStatusBar, false);
         end
     );
     
@@ -155,8 +164,8 @@ local function LoadSettingsAndConfig()
     Borderless:Minimap(BorderlessMinimap);
     Borderless:Objectivetracker(BorderlessObjectiveTracker);
     Borderless:Actionbars(BorderlessActionbars);
-    Borderless:ClassIcon(BorderlessClassIcon);
-
+    Borderless:ClassIcon(BorderlessClassIcon, true);
+    Borderless:StatusBar(BorderlessStatusBar, true);
 end
 
 Borderless_config.panel:RegisterEvent("ADDON_LOADED");

@@ -43,6 +43,10 @@ if BorderlessClassIcon == nil then
     BorderlessClassIcon = true;
 end
 
+if BorderlessStatusBar == nil then
+    BorderlessStatusBar = false;
+end
+
 
 Borderless = {};
 local _, L = ...;
@@ -101,8 +105,30 @@ end
 function Borderless:Castbar(hide)
     if hide then
         CastingBarFrame.Border:Hide();
+        CastingBarFrame.Flash:SetPoint("TOP", 0, -666)
     else
         CastingBarFrame.Border:Show();
+        CastingBarFrame.Flash:SetPoint("TOP", 0, 20)
+    end
+end
+
+-- Status bar (xp, reputation, honor, azerite, etc)
+function Borderless:StatusBar(hide, initialLoading)
+    if hide then
+        StatusTrackingBarManager.bars={};
+        StatusTrackingBarManager.barHeight = 0;
+        StatusTrackingBarManager:UpdateBarsShown();
+        -- StatusTrackingBarManager:UnregisterAllEvents();
+        StatusTrackingBarManager:SetScript("OnEvent", 
+            function()
+                StatusTrackingBarManager.bars={};
+                StatusTrackingBarManager:UpdateBarsShown();
+                -- StatusTrackingBarManager:UnregisterAllEvents();
+            end
+        );
+        
+    elseif not initialLoading then
+        print(L["Disabling this requires a ui reload. Try /reload, or just log out and back in again"])
     end
 end
 
@@ -410,7 +436,7 @@ function Borderless:Actionbars(hide)
 end
 
 --Class icons
-function Borderless:ClassIcon(hide)
+function Borderless:ClassIcon(hide, initialLoading)
     if hide then
         -- Target Frame as class icon
         hooksecurefunc("UnitFramePortrait_Update",function(self)
@@ -423,19 +449,8 @@ function Borderless:ClassIcon(hide)
             end
             end
         end);
-    else
+    elseif not initialLoading then
         print(L["Disabling this requires a ui reload. Try /reload, or just log out and back in again"])
     end
 end
 
--- Borderless:Dragons(BorderlessDragons);
--- Borderless:Player(BorderlessPlayer);
--- Borderless:Target(BorderlessTarget);
--- Borderless:Focus(BorderlessFocus);
--- Borderless:Castbar(BorderlessCastbar);
--- Borderless:Bags(BorderlessBags);
--- Borderless:Menu(BorderlessMenu);
--- Borderless:Minimap(BorderlessMinimap);
--- Borderless:Objectivetracker(BorderlessObjectiveTracker);
--- Borderless:Actionbars(BorderlessActionbars);
--- Borderless:ClassIcon(BorderlessClassIcon);
