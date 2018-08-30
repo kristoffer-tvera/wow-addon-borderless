@@ -22,5 +22,7 @@ if GetLocale() == "frFR" then
  L["Removes the border and header column effects of the objective tracker"] = "Removes the border and header column effects of the objective tracker";
  L["Disabling this requires a ui reload. Try /reload, or just log out and back in again"] = "Disabling this requires a ui reload. Try /reload, or just log out and back in again";
  L["Overwrite Player, Target and Focus portrait with class icon"] = "Overwrite Player, Target and Focus portrait with class icon";
+ L["Status bar"] = "Status bar";
+ L["The bar below actionbars that shows xp, reputation, honor, azerite, etc"] = "The bar below actionbars that shows xp, reputation, honor, azerite, etc";
  L["borderless"] = "borderless";  -- used for slashcommand and interface option panel name
 end
