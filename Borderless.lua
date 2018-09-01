@@ -115,20 +115,9 @@ end
 -- Status bar (xp, reputation, honor, azerite, etc)
 function Borderless:StatusBar(hide, initialLoading)
     if hide then
-        StatusTrackingBarManager.bars={};
-        StatusTrackingBarManager.barHeight = 0;
-        StatusTrackingBarManager:UpdateBarsShown();
-        -- StatusTrackingBarManager:UnregisterAllEvents();
-        StatusTrackingBarManager:SetScript("OnEvent", 
-            function()
-                StatusTrackingBarManager.bars={};
-                StatusTrackingBarManager:UpdateBarsShown();
-                -- StatusTrackingBarManager:UnregisterAllEvents();
-            end
-        );
-        
+        StatusTrackingBarManager:Hide();
     elseif not initialLoading then
-        print(L["Disabling this requires a ui reload. Try /reload, or just log out and back in again"])
+        StatusTrackingBarManager:Show();
     end
 end
 
