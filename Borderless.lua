@@ -47,6 +47,10 @@ if BorderlessStatusBar == nil then
     BorderlessStatusBar = false;
 end
 
+if BorderlessTalkingHeads == nil then
+    BorderlessTalkingHeads = false;
+end
+
 
 Borderless = {};
 local _, L = ...;
@@ -443,3 +447,17 @@ function Borderless:ClassIcon(hide, initialLoading)
     end
 end
 
+-- Talking Head Frame
+function Borderless:TalkingHead()
+    if BorderlessTalkingHeads then
+        TalkingHeadFrame_CloseImmediately();
+    end
+end
+
+Borderless.EventHookingFrame = CreateFrame("Frame", UIParent);
+Borderless.EventHookingFrame:RegisterEvent("TALKINGHEAD_REQUESTED");
+Borderless.EventHookingFrame:SetScript("OnEvent", function(self, event, ...)
+    if event == "TALKINGHEAD_REQUESTED" then
+        Borderless:TalkingHead();
+    end
+end);

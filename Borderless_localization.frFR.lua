@@ -24,5 +24,7 @@ if GetLocale() == "frFR" then
  L["Overwrite Player, Target and Focus portrait with class icon"] = "Overwrite Player, Target and Focus portrait with class icon";
  L["Status bar"] = "Status bar";
  L["The bar below actionbars that shows xp, reputation, honor, azerite, etc"] = "The bar below actionbars that shows xp, reputation, honor, azerite, etc";
+ L["Talking Popup"] = "Talking popup";
+ L["This is the popup that shows a picture and some dialog when you enter certain dungeons/quests"] = "This is the popup that shows a picture and some dialog when you enter certain dungeons/quests";
  L["borderless"] = "borderless";  -- used for slashcommand and interface option panel name
 end
