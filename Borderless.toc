@@ -1,8 +1,8 @@
-## Interface: 90105
+## Interface: 90200
 ## Title: Borderless
 ## Title-frFR: Borderless
 ## Title-deDE: Borderless
-## Version: v9.1.5
+## Version: v9.2.0
 ## Notes: Borders? No thanks.
 ## Notes-frFR: Borders? No thanks.
 ## Notes-deDE: Borders? No thanks.
