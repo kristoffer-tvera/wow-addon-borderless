@@ -56,53 +56,6 @@ local function LoadSettingsAndConfig()
         end
     );
     
-    Borderless_config_miniMapCheckbox = createCheckbutton(Borderless_config.panel, BorderlessMinimap, L["No borders around minimap"], L["Removes the borders around the minimap"]);
-    Borderless_config_miniMapCheckbox:SetScript("OnClick", 
-        function()
-            BorderlessMinimap = Borderless_config_miniMapCheckbox:GetChecked();
-            Borderless:Minimap(BorderlessMinimap);
-        end
-    );
-    
-    Borderless_config_playerCheckbox = createCheckbutton(Borderless_config.panel, BorderlessPlayer, L["No borders around the playerframe"], L["Removes the border around the playerframe"]);
-    Borderless_config_playerCheckbox:SetScript("OnClick", 
-        function()
-            BorderlessPlayer = Borderless_config_playerCheckbox:GetChecked();
-            Borderless:Player(BorderlessPlayer);
-        end
-    );
-    
-    Borderless_config_targetCheckbox = createCheckbutton(Borderless_config.panel, BorderlessTarget, L["No borders around the targetframe"], L["Removes the border around the targetframe"]);
-    Borderless_config_targetCheckbox:SetScript("OnClick", 
-        function()
-            BorderlessTarget = Borderless_config_targetCheckbox:GetChecked();
-            Borderless:Target(BorderlessTarget);
-        end
-    );
-    
-    Borderless_config_focusCheckbox = createCheckbutton(Borderless_config.panel, BorderlessFocus, L["No borders around the focusframe"], L["Removes the border around the focusframe"]);
-    Borderless_config_focusCheckbox:SetScript("OnClick", 
-        function()
-            BorderlessFocus = Borderless_config_focusCheckbox:GetChecked();
-            Borderless:Focus(BorderlessFocus);
-        end
-    );
-    
-    Borderless_config_castBarCheckbox = createCheckbutton(Borderless_config.panel, BorderlessCastbar, L["No borders around the castbar"], L["Removes the border around the castbar"]);
-    Borderless_config_castBarCheckbox:SetScript("OnClick", 
-        function()
-            BorderlessCastbar = Borderless_config_castBarCheckbox:GetChecked();
-            Borderless:Castbar(BorderlessCastbar);
-        end
-    );
-    
-    Borderless_config_microMenuCheckbox = createCheckbutton(Borderless_config.panel, BorderlessMenu, L["No borders around the micro game menu"], L["Remove the borders around the micro game menu"]);
-    Borderless_config_microMenuCheckbox:SetScript("OnClick", 
-        function()
-            BorderlessMenu = Borderless_config_microMenuCheckbox:GetChecked();
-            Borderless:Menu(BorderlessMenu);
-        end
-    );
     
     Borderless_config_bagsCheckbox = createCheckbutton(Borderless_config.panel, BorderlessBags, L["Hide the bags"], L["Remove the bags over the ingame micro-menu line"]);
     Borderless_config_bagsCheckbox:SetScript("OnClick", 
@@ -150,13 +103,7 @@ local function LoadSettingsAndConfig()
     Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "For ideas, suggestions, issues, or help with translations, " .. githubUrl, 14, 3);
 
     Borderless:Dragons(BorderlessDragons);
-    Borderless:Player(BorderlessPlayer);
-    Borderless:Target(BorderlessTarget);
-    Borderless:Focus(BorderlessFocus);
-    Borderless:Castbar(BorderlessCastbar);
     Borderless:Bags(BorderlessBags);
-    Borderless:Menu(BorderlessMenu);
-    Borderless:Minimap(BorderlessMinimap);
     Borderless:Objectivetracker(BorderlessObjectiveTracker);
     Borderless:Actionbars(BorderlessActionbars);
     Borderless:ClassIcon(BorderlessClassIcon, true);
