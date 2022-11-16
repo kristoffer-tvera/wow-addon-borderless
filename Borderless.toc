@@ -1,8 +1,8 @@
-## Interface: 100000
+## Interface: 100002
 ## Title: Borderless
 ## Title-frFR: Borderless
 ## Title-deDE: Borderless
-## Version: v10.0.0
+## Version: v10.0.2
 ## Notes: Borders? No thanks.
 ## Notes-frFR: Borders? No thanks.
 ## Notes-deDE: Borders? No thanks.
