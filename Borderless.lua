@@ -1,4 +1,4 @@
---Check+Init globals
+-- Check+Init globals
 if BorderlessDragons == nil then
     BorderlessDragons = true;
 end
@@ -51,7 +51,6 @@ if BorderlessTalkingHeads == nil then
     BorderlessTalkingHeads = false;
 end
 
-
 Borderless = {};
 local _, L = ...;
 
@@ -60,12 +59,11 @@ function Borderless:Dragons(hide)
     if hide then
         MainMenuBar.EndCaps.LeftEndCap:Hide();
         MainMenuBar.EndCaps.RightEndCap:Hide();
-    else 
+    else
         MainMenuBar.EndCaps.LeftEndCap:Show();
         MainMenuBar.EndCaps.RightEndCap:Show();
     end
 end
-
 
 -- Status bar (xp, reputation, honor, azerite, etc)
 function Borderless:StatusBar(hide, initialLoading)
@@ -76,7 +74,7 @@ function Borderless:StatusBar(hide, initialLoading)
     end
 end
 
---Bags
+-- Bags
 function Borderless:Bags(hide)
     if hide then
         CharacterBag0Slot:Hide();
@@ -97,72 +95,73 @@ function Borderless:Bags(hide)
     end
 end
 
---Objective tracker
+-- Objective tracker
 function Borderless:Objectivetracker(hide)
     if hide then
-        ObjectiveTrackerBlocksFrame.QuestHeader.Background:Hide();
-        ObjectiveTrackerBlocksFrame.AchievementHeader.Background:Hide();
+        QuestObjectiveTracker.Header.Background:Hide();
+        AchievementObjectiveTracker.Header.Background:Hide();
     else
-        ObjectiveTrackerBlocksFrame.QuestHeader.Background:Show();
-        ObjectiveTrackerBlocksFrame.AchievementHeader.Background:Show();
+        QuestObjectiveTracker.Header.Background:Show();
+        AchievementObjectiveTracker.Header.Background:Show();
     end
 end
 
---Actionbars
+-- Actionbars
 function Borderless:Actionbars(hide)
-        
-    --Removes the border/background of all action bar items:
+
+    -- Removes the border/background of all action bar items:
     if hide then
-        --Main Action Bar
+        -- Main Action Bar
         MainMenuBar.BorderArt:SetAlpha(0);
-        ActionButton1.RightDivider:SetAlpha(0);
-        ActionButton2.RightDivider:SetAlpha(0);
-        ActionButton3.RightDivider:SetAlpha(0);
-        ActionButton4.RightDivider:SetAlpha(0);
-        ActionButton5.RightDivider:SetAlpha(0);
-        ActionButton6.RightDivider:SetAlpha(0);
-        ActionButton7.RightDivider:SetAlpha(0);
-        ActionButton8.RightDivider:SetAlpha(0);
-        ActionButton9.RightDivider:SetAlpha(0);
-        ActionButton10.RightDivider:SetAlpha(0);
-        ActionButton11.RightDivider:SetAlpha(0);
+        -- ActionButton1.RightDivider:SetAlpha(0);
+        -- ActionButton2.RightDivider:SetAlpha(0);
+        -- ActionButton3.RightDivider:SetAlpha(0);
+        -- ActionButton4.RightDivider:SetAlpha(0);
+        -- ActionButton5.RightDivider:SetAlpha(0);
+        -- ActionButton6.RightDivider:SetAlpha(0);
+        -- ActionButton7.RightDivider:SetAlpha(0);
+        -- ActionButton8.RightDivider:SetAlpha(0);
+        -- ActionButton9.RightDivider:SetAlpha(0);
+        -- ActionButton10.RightDivider:SetAlpha(0);
+        -- ActionButton11.RightDivider:SetAlpha(0);
 
     else
-        --Main Action Bar
+        -- Main Action Bar
         MainMenuBar.BorderArt:SetAlpha(1);
-        ActionButton1.RightDivider:SetAlpha(1);
-        ActionButton2.RightDivider:SetAlpha(1);
-        ActionButton3.RightDivider:SetAlpha(1);
-        ActionButton4.RightDivider:SetAlpha(1);
-        ActionButton5.RightDivider:SetAlpha(1);
-        ActionButton6.RightDivider:SetAlpha(1);
-        ActionButton7.RightDivider:SetAlpha(1);
-        ActionButton8.RightDivider:SetAlpha(1);
-        ActionButton9.RightDivider:SetAlpha(1);
-        ActionButton10.RightDivider:SetAlpha(1);
-        ActionButton11.RightDivider:SetAlpha(1);
+        -- ActionButton1.RightDivider:SetAlpha(1);
+        -- ActionButton2.RightDivider:SetAlpha(1);
+        -- ActionButton3.RightDivider:SetAlpha(1);
+        -- ActionButton4.RightDivider:SetAlpha(1);
+        -- ActionButton5.RightDivider:SetAlpha(1);
+        -- ActionButton6.RightDivider:SetAlpha(1);
+        -- ActionButton7.RightDivider:SetAlpha(1);
+        -- ActionButton8.RightDivider:SetAlpha(1);
+        -- ActionButton9.RightDivider:SetAlpha(1);
+        -- ActionButton10.RightDivider:SetAlpha(1);
+        -- ActionButton11.RightDivider:SetAlpha(1);
 
     end
 
     -- c# for generating blocks above,
     -- for(var i = 1; i <= 12; i++){
-        -- Console.WriteLine($"MultiBarLeftButton{i}FloatingBG:Hide();");
-        -- Console.WriteLine($"MultiBarLeftButton{i}NormalTexture:Hide();");
+    -- Console.WriteLine($"MultiBarLeftButton{i}FloatingBG:Hide();");
+    -- Console.WriteLine($"MultiBarLeftButton{i}NormalTexture:Hide();");
     -- }
 end
 
---Class icons
+-- Class icons
 function Borderless:ClassIcon(hide, initialLoading)
     if hide then
         -- Target Frame as class icon
-        hooksecurefunc("UnitFramePortrait_Update",function(self)
+        hooksecurefunc("UnitFramePortrait_Update", function(self)
             if self.portrait then
-            t=CLASS_ICON_TCOORDS[select(2,UnitClass(self.unit))]
-            if t and UnitIsPlayer(self.unit) then
-                self.portrait:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles") self.portrait:SetTexCoord(unpack(t))
-            else
-                self.portrait:SetTexCoord(0,1,0,1)
-            end
+                t = CLASS_ICON_TCOORDS[select(2, UnitClass(self.unit))]
+                if t and UnitIsPlayer(self.unit) then
+                    self.portrait:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles")
+                    self.portrait:SetTexCoord(unpack(t))
+                else
+                    self.portrait:SetTexCoord(0, 1, 0, 1)
+                end
             end
         end);
     elseif not initialLoading then
@@ -173,7 +172,7 @@ end
 -- Talking Head Frame
 function Borderless:TalkingHead()
     if BorderlessTalkingHeads then
-        TalkingHeadFrame_CloseImmediately();
+        TalkingHeadFrame:Hide()
     end
 end
 
