@@ -1,5 +1,5 @@
-## Interface: 110100
-## Version: v11.1.0
+## Interface: 110105
+## Version: v11.1.5
 ## Title: Borderless
 ## Title-frFR: Borderless
 ## Title-deDE: Borderless
@@ -7,6 +7,18 @@
 ## Notes-frFR: Borders? No thanks.
 ## Notes-deDE: Borders? No thanks.
 ## SavedVariables: BorderlessDragons, BorderlessPlayer, BorderlessTarget, BorderlessFocus, BorderlessActionbars, BorderlessMinimap, BorderlessMenu, BorderlessObjectiveTracker, BorderlessBags, BorderlessCastbar, BorderlessClassIcon, BorderlessStatusBar, BorderlessTalkingHeads
+
+## Category-enUS: Action Bars
+## Category-deDE: Aktionsleisten
+## Category-esES: Barras de acción
+## Category-esMX: Barras de acción
+## Category-frFR: Barres d’action
+## Category-itIT: Barre delle azioni
+## Category-koKR: 행동 단축바
+## Category-ptBR: Barras de ação
+## Category-ruRU: Панели команд
+## Category-zhCN: 动作条
+## Category-zhTW: 快捷列
 
 Borderless_localization.lua
 Borderless_localization.deDE.lua
