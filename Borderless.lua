@@ -1,8 +1,4 @@
 -- Check+Init globals
-if BorderlessDragons == nil then
-    BorderlessDragons = true;
-end
-
 if BorderlessTarget == nil then
     BorderlessTarget = true;
 end
@@ -54,17 +50,6 @@ end
 Borderless = {};
 local _, L = ...;
 
--- Hide dragons on each side
-function Borderless:Dragons(hide)
-    if hide then
-        MainMenuBar.EndCaps.LeftEndCap:Hide();
-        MainMenuBar.EndCaps.RightEndCap:Hide();
-    else
-        MainMenuBar.EndCaps.LeftEndCap:Show();
-        MainMenuBar.EndCaps.RightEndCap:Show();
-    end
-end
-
 -- Status bar (xp, reputation, honor, azerite, etc)
 function Borderless:StatusBar(hide, initialLoading)
     if hide then
@@ -99,9 +84,11 @@ end
 function Borderless:Objectivetracker(hide)
     if hide then
         QuestObjectiveTracker.Header.Background:Hide();
+        ObjectiveTrackerFrame.Header.Background:SetAlpha(0);
         AchievementObjectiveTracker.Header.Background:Hide();
     else
         QuestObjectiveTracker.Header.Background:Show();
+        ObjectiveTrackerFrame.Header.Background:SetAlpha(1);
         AchievementObjectiveTracker.Header.Background:Show();
     end
 end
@@ -110,43 +97,59 @@ end
 function Borderless:Actionbars(hide)
 
     -- Removes the border/background of all action bar items:
-    if hide then
-        -- Main Action Bar
-        MainMenuBar.BorderArt:SetAlpha(0);
-        -- ActionButton1.RightDivider:SetAlpha(0);
-        -- ActionButton2.RightDivider:SetAlpha(0);
-        -- ActionButton3.RightDivider:SetAlpha(0);
-        -- ActionButton4.RightDivider:SetAlpha(0);
-        -- ActionButton5.RightDivider:SetAlpha(0);
-        -- ActionButton6.RightDivider:SetAlpha(0);
-        -- ActionButton7.RightDivider:SetAlpha(0);
-        -- ActionButton8.RightDivider:SetAlpha(0);
-        -- ActionButton9.RightDivider:SetAlpha(0);
-        -- ActionButton10.RightDivider:SetAlpha(0);
-        -- ActionButton11.RightDivider:SetAlpha(0);
+    local alpha = hide and 0 or 1;
+    -- Main Action Bar
 
-    else
-        -- Main Action Bar
-        MainMenuBar.BorderArt:SetAlpha(1);
-        -- ActionButton1.RightDivider:SetAlpha(1);
-        -- ActionButton2.RightDivider:SetAlpha(1);
-        -- ActionButton3.RightDivider:SetAlpha(1);
-        -- ActionButton4.RightDivider:SetAlpha(1);
-        -- ActionButton5.RightDivider:SetAlpha(1);
-        -- ActionButton6.RightDivider:SetAlpha(1);
-        -- ActionButton7.RightDivider:SetAlpha(1);
-        -- ActionButton8.RightDivider:SetAlpha(1);
-        -- ActionButton9.RightDivider:SetAlpha(1);
-        -- ActionButton10.RightDivider:SetAlpha(1);
-        -- ActionButton11.RightDivider:SetAlpha(1);
+    for i = 1, 12 do
+        local actionButton = _G["ActionButton" .. i];
+        actionButton.NormalTexture:SetAlpha(alpha);
+        if actionButton.SlotBackground then
+            actionButton.SlotBackground:SetAlpha(alpha);
+        end
 
+        local multiBarBottomLeftButton = _G["MultiBarBottomLeftButton" .. i];
+        multiBarBottomLeftButton.NormalTexture:SetAlpha(alpha);
+        if multiBarBottomLeftButton.SlotBackground then
+            multiBarBottomLeftButton.SlotBackground:SetAlpha(alpha);
+        end
+
+        local multiBarBottomRightButton = _G["MultiBarBottomRightButton" .. i];
+        multiBarBottomRightButton.NormalTexture:SetAlpha(alpha);
+        if multiBarBottomRightButton.SlotBackground then
+            multiBarBottomRightButton.SlotBackground:SetAlpha(alpha);
+        end
+
+        local multiBarRightButton = _G["MultiBarRightButton" .. i];
+        multiBarRightButton.NormalTexture:SetAlpha(alpha);
+        if multiBarRightButton.SlotBackground then
+            multiBarRightButton.SlotBackground:SetAlpha(alpha);
+        end
+
+        local multiBarLeftButton = _G["MultiBarLeftButton" .. i];
+        multiBarLeftButton.NormalTexture:SetAlpha(alpha);
+        if multiBarLeftButton.SlotBackground then
+            multiBarLeftButton.SlotBackground:SetAlpha(alpha);
+        end
+
+        local multiBar5Button = _G["MultiBar5Button" .. i];
+        multiBar5Button.NormalTexture:SetAlpha(alpha);
+        if multiBar5Button.SlotBackground then
+            multiBar5Button.SlotBackground:SetAlpha(alpha);
+        end
+
+        local multiBar6Button = _G["MultiBar6Button" .. i];
+        multiBar6Button.NormalTexture:SetAlpha(alpha);
+        if multiBar6Button.SlotBackground then
+            multiBar6Button.SlotBackground:SetAlpha(alpha);
+        end
+
+        local multiBar7Button = _G["MultiBar7Button" .. i];
+        multiBar7Button.NormalTexture:SetAlpha(alpha);
+        if multiBar7Button.SlotBackground then
+            multiBar7Button.SlotBackground:SetAlpha(alpha);
+        end
     end
 
-    -- c# for generating blocks above,
-    -- for(var i = 1; i <= 12; i++){
-    -- Console.WriteLine($"MultiBarLeftButton{i}FloatingBG:Hide();");
-    -- Console.WriteLine($"MultiBarLeftButton{i}NormalTexture:Hide();");
-    -- }
 end
 
 -- Class icons

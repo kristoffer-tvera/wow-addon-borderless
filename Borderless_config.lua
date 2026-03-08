@@ -9,10 +9,10 @@ local unique = 1;
 Borderless_config.panel = CreateFrame("Frame", "BorderlessConfigFrame", UIParent);
 Borderless_config.panel.name = capitalizedAddonName;
 
-category, layout = Settings.RegisterCanvasLayoutCategory(Borderless_config.panel, Borderless_config.panel.name,
+local Borderless_category = Settings.RegisterCanvasLayoutCategory(Borderless_config.panel, Borderless_config.panel.name,
     Borderless_config.panel.name);
-category.ID = Borderless_config.panel.name
-Settings.RegisterAddOnCategory(category);
+-- Borderless_category.ID = Borderless_config.panel.name
+Settings.RegisterAddOnCategory(Borderless_category);
 
 function createCheckbutton(parent, prechecked, displayname, tooltip)
     local checkbutton = CreateFrame("CheckButton", "BorderlessConfigFrameCheckbox" .. unique, parent,
@@ -39,18 +39,8 @@ function createTextFrame(parent, text, fontsize, heightMultiplier)
     return fontFrame;
 end
 
-Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "-->> " .. capitalizedAddonName .. " <<--", 25,
-    1);
-
 local function LoadSettingsAndConfig()
     Borderless_config.panel:UnregisterEvent("ADDON_LOADED");
-
-    Borderless_config_dragonsCheckbox = createCheckbutton(Borderless_config.panel, BorderlessDragons,
-        L["No dragons/lions"], L["Remove the dragons around the actionbars"]);
-    Borderless_config_dragonsCheckbox:SetScript("OnClick", function()
-        BorderlessDragons = Borderless_config_dragonsCheckbox:GetChecked();
-        Borderless:Dragons(BorderlessDragons);
-    end);
 
     Borderless_config_actionBarsCheckbox = createCheckbutton(Borderless_config.panel, BorderlessActionbars,
         L["No borders around actionbars"], L["Removes the borders around all the actionbar items"]);
@@ -96,14 +86,6 @@ local function LoadSettingsAndConfig()
         -- Borderless:TalkingHead(BorderlessTalkingHeads, false);
     end);
 
-    local githubUrl = 'https://github.com/kristoffer-tvera/wow-addon-borderless';
-
-    Borderless_config_introFrame = createTextFrame(Borderless_config.panel, "Made by BZL#2429 on EU-Defias Brotherhood",
-        16, 1);
-    Borderless_config_introFrame = createTextFrame(Borderless_config.panel,
-        "For ideas, suggestions, issues, or help with translations, " .. githubUrl, 14, 3);
-
-    Borderless:Dragons(BorderlessDragons);
     Borderless:Bags(BorderlessBags);
     Borderless:Objectivetracker(BorderlessObjectiveTracker);
     Borderless:Actionbars(BorderlessActionbars);
@@ -118,6 +100,5 @@ Borderless_config.panel:SetScript("OnEvent", LoadSettingsAndConfig);
 -- Register a slashcommand to quickly modify settings
 SLASH_BORDERLESS1 = '/' .. addonName;
 SlashCmdList["BORDERLESS"] = function(msg)
-    InterfaceOptionsFrame_OpenToCategory(Borderless_config.panel);
-    InterfaceOptionsFrame_OpenToCategory(Borderless_config.panel);
+    Settings.OpenToCategory(Borderless_category:GetID());
 end
