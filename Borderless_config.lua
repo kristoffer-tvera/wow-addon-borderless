@@ -14,19 +14,19 @@ local Borderless_category = Settings.RegisterCanvasLayoutCategory(Borderless_con
 -- Borderless_category.ID = Borderless_config.panel.name
 Settings.RegisterAddOnCategory(Borderless_category);
 
-function createCheckbutton(parent, prechecked, displayname, tooltip)
+local function createCheckbutton(parent, prechecked, displayname, tooltip)
     local checkbutton = CreateFrame("CheckButton", "BorderlessConfigFrameCheckbox" .. unique, parent,
         "ChatConfigCheckButtonTemplate");
     checkbutton:SetPoint("TOPLEFT", x_indentation, (y_increment * unique));
     checkbutton:SetChecked(prechecked);
-    getglobal(checkbutton:GetName() .. 'Text'):SetText(displayname);
+    _G[checkbutton:GetName() .. 'Text']:SetText(displayname);
     checkbutton.tooltip = tooltip;
 
     unique = unique + 1;
     return checkbutton;
 end
 
-function createTextFrame(parent, text, fontsize, heightMultiplier)
+local function createTextFrame(parent, text, fontsize, heightMultiplier)
     local fontFrame = CreateFrame("Frame", "BorderlessConfigFrameTextbox" .. unique, parent);
     fontFrame:SetSize(600, fontsize * heightMultiplier);
     fontFrame:SetPoint("TOPLEFT", x_indentation, (y_increment * unique));
