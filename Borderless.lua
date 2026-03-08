@@ -1,8 +1,4 @@
 -- Check+Init globals
-if BorderlessDragons == nil then
-    BorderlessDragons = true;
-end
-
 if BorderlessTarget == nil then
     BorderlessTarget = true;
 end
@@ -54,17 +50,6 @@ end
 Borderless = {};
 local _, L = ...;
 
--- Hide dragons on each side
-function Borderless:Dragons(hide)
-    if hide then
-        MainMenuBar.EndCaps.LeftEndCap:Hide();
-        MainMenuBar.EndCaps.RightEndCap:Hide();
-    else
-        MainMenuBar.EndCaps.LeftEndCap:Show();
-        MainMenuBar.EndCaps.RightEndCap:Show();
-    end
-end
-
 -- Status bar (xp, reputation, honor, azerite, etc)
 function Borderless:StatusBar(hide, initialLoading)
     if hide then
@@ -112,7 +97,7 @@ function Borderless:Actionbars(hide)
     -- Removes the border/background of all action bar items:
     if hide then
         -- Main Action Bar
-        MainMenuBar.BorderArt:SetAlpha(0);
+        -- MainMenuBar.BorderArt:SetAlpha(0);
         -- ActionButton1.RightDivider:SetAlpha(0);
         -- ActionButton2.RightDivider:SetAlpha(0);
         -- ActionButton3.RightDivider:SetAlpha(0);
@@ -127,7 +112,7 @@ function Borderless:Actionbars(hide)
 
     else
         -- Main Action Bar
-        MainMenuBar.BorderArt:SetAlpha(1);
+        -- MainMenuBar.BorderArt:SetAlpha(1);
         -- ActionButton1.RightDivider:SetAlpha(1);
         -- ActionButton2.RightDivider:SetAlpha(1);
         -- ActionButton3.RightDivider:SetAlpha(1);
