@@ -1,50 +1,23 @@
--- Check+Init globals
-if BorderlessTarget == nil then
-    BorderlessTarget = true;
-end
+-- Check+Init globals (defaults)
+local savedVariableDefaults = {
+    BorderlessTarget = true,
+    BorderlessPlayer = true,
+    BorderlessFocus = true,
+    BorderlessActionbars = true,
+    BorderlessMinimap = true,
+    BorderlessMenu = true,
+    BorderlessObjectiveTracker = true,
+    BorderlessBags = true,
+    BorderlessCastbar = true,
+    BorderlessClassIcon = true,
+    BorderlessStatusBar = false,
+    BorderlessTalkingHeads = false
+};
 
-if BorderlessPlayer == nil then
-    BorderlessPlayer = true;
-end
-
-if BorderlessFocus == nil then
-    BorderlessFocus = true;
-end
-
-if BorderlessActionbars == nil then
-    BorderlessActionbars = true;
-end
-
-if BorderlessMinimap == nil then
-    BorderlessMinimap = true;
-end
-
-if BorderlessMenu == nil then
-    BorderlessMenu = true;
-end
-
-if BorderlessObjectiveTracker == nil then
-    BorderlessObjectiveTracker = true;
-end
-
-if BorderlessBags == nil then
-    BorderlessBags = true;
-end
-
-if BorderlessCastbar == nil then
-    BorderlessCastbar = true;
-end
-
-if BorderlessClassIcon == nil then
-    BorderlessClassIcon = true;
-end
-
-if BorderlessStatusBar == nil then
-    BorderlessStatusBar = false;
-end
-
-if BorderlessTalkingHeads == nil then
-    BorderlessTalkingHeads = false;
+for name, default in pairs(savedVariableDefaults) do
+    if _G[name] == nil then
+        _G[name] = default;
+    end
 end
 
 Borderless = {};
@@ -60,23 +33,19 @@ function Borderless:StatusBar(hide, initialLoading)
 end
 
 -- Bags
+local bagFrames = {"CharacterBag0Slot", "CharacterBag1Slot", "CharacterBag2Slot", "CharacterBag3Slot",
+                   "MainMenuBarBackpackButton", "CharacterReagentBag0Slot", "BagBarExpandToggle"};
+
 function Borderless:Bags(hide)
-    if hide then
-        CharacterBag0Slot:Hide();
-        CharacterBag1Slot:Hide();
-        CharacterBag2Slot:Hide();
-        CharacterBag3Slot:Hide();
-        MainMenuBarBackpackButton:Hide();
-        CharacterReagentBag0Slot:Hide();
-        BagBarExpandToggle:Hide();
-    else
-        CharacterBag0Slot:Show();
-        CharacterBag1Slot:Show();
-        CharacterBag2Slot:Show();
-        CharacterBag3Slot:Show();
-        MainMenuBarBackpackButton:Show();
-        CharacterReagentBag0Slot:Show();
-        BagBarExpandToggle:Show();
+    for _, name in ipairs(bagFrames) do
+        local frame = _G[name];
+        if frame then
+            if hide then
+                frame:Hide()
+            else
+                frame:Show()
+            end
+        end
     end
 end
 
@@ -94,62 +63,27 @@ function Borderless:Objectivetracker(hide)
 end
 
 -- Actionbars
-function Borderless:Actionbars(hide)
+local actionBarPrefixes = {"ActionButton", "MultiBarBottomLeftButton", "MultiBarBottomRightButton",
+                           "MultiBarRightButton", "MultiBarLeftButton", "MultiBar5Button", "MultiBar6Button",
+                           "MultiBar7Button"};
 
+function Borderless:Actionbars(hide)
     -- Removes the border/background of all action bar items:
     local alpha = hide and 0 or 1;
-    -- Main Action Bar
 
-    for i = 1, 12 do
-        local actionButton = _G["ActionButton" .. i];
-        actionButton.NormalTexture:SetAlpha(alpha);
-        if actionButton.SlotBackground then
-            actionButton.SlotBackground:SetAlpha(alpha);
-        end
-
-        local multiBarBottomLeftButton = _G["MultiBarBottomLeftButton" .. i];
-        multiBarBottomLeftButton.NormalTexture:SetAlpha(alpha);
-        if multiBarBottomLeftButton.SlotBackground then
-            multiBarBottomLeftButton.SlotBackground:SetAlpha(alpha);
-        end
-
-        local multiBarBottomRightButton = _G["MultiBarBottomRightButton" .. i];
-        multiBarBottomRightButton.NormalTexture:SetAlpha(alpha);
-        if multiBarBottomRightButton.SlotBackground then
-            multiBarBottomRightButton.SlotBackground:SetAlpha(alpha);
-        end
-
-        local multiBarRightButton = _G["MultiBarRightButton" .. i];
-        multiBarRightButton.NormalTexture:SetAlpha(alpha);
-        if multiBarRightButton.SlotBackground then
-            multiBarRightButton.SlotBackground:SetAlpha(alpha);
-        end
-
-        local multiBarLeftButton = _G["MultiBarLeftButton" .. i];
-        multiBarLeftButton.NormalTexture:SetAlpha(alpha);
-        if multiBarLeftButton.SlotBackground then
-            multiBarLeftButton.SlotBackground:SetAlpha(alpha);
-        end
-
-        local multiBar5Button = _G["MultiBar5Button" .. i];
-        multiBar5Button.NormalTexture:SetAlpha(alpha);
-        if multiBar5Button.SlotBackground then
-            multiBar5Button.SlotBackground:SetAlpha(alpha);
-        end
-
-        local multiBar6Button = _G["MultiBar6Button" .. i];
-        multiBar6Button.NormalTexture:SetAlpha(alpha);
-        if multiBar6Button.SlotBackground then
-            multiBar6Button.SlotBackground:SetAlpha(alpha);
-        end
-
-        local multiBar7Button = _G["MultiBar7Button" .. i];
-        multiBar7Button.NormalTexture:SetAlpha(alpha);
-        if multiBar7Button.SlotBackground then
-            multiBar7Button.SlotBackground:SetAlpha(alpha);
+    for _, prefix in ipairs(actionBarPrefixes) do
+        for i = 1, 12 do
+            local button = _G[prefix .. i];
+            if button then
+                if button.NormalTexture then
+                    button.NormalTexture:SetAlpha(alpha);
+                end
+                if button.SlotBackground then
+                    button.SlotBackground:SetAlpha(alpha);
+                end
+            end
         end
     end
-
 end
 
 -- Class icons
@@ -158,7 +92,7 @@ function Borderless:ClassIcon(hide, initialLoading)
         -- Target Frame as class icon
         hooksecurefunc("UnitFramePortrait_Update", function(self)
             if self.portrait then
-                t = CLASS_ICON_TCOORDS[select(2, UnitClass(self.unit))]
+                local t = CLASS_ICON_TCOORDS[select(2, UnitClass(self.unit))]
                 if t and UnitIsPlayer(self.unit) then
                     self.portrait:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles")
                     self.portrait:SetTexCoord(unpack(t))
