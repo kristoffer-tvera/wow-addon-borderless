@@ -113,10 +113,18 @@ function Borderless:TalkingHead()
     end
 end
 
+--- Other frames
+MinimapCompassTexture:SetAlpha(0);
+GameMenuFrame.Border:Hide();
+
+hooksecurefunc(getmetatable(CreateFrame("Frame"):CreateTexture()).__index, "SetDrawLayer", function(self, layer)
+    if layer == "BORDER" then
+        self:SetAlpha(0)
+    end
+end)
+
 Borderless.EventHookingFrame = CreateFrame("Frame", UIParent);
 Borderless.EventHookingFrame:RegisterEvent("TALKINGHEAD_REQUESTED");
 Borderless.EventHookingFrame:SetScript("OnEvent", function(self, event, ...)
-    if event == "TALKINGHEAD_REQUESTED" then
-        Borderless:TalkingHead();
-    end
+    Borderless:TalkingHead();
 end);
