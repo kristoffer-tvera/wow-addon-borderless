@@ -91,16 +91,23 @@ function Borderless:ClassIcon(hide, initialLoading)
     if hide then
         -- Target Frame as class icon
         hooksecurefunc("UnitFramePortrait_Update", function(self)
-            if self.portrait then
-                local t = CLASS_ICON_TCOORDS[select(2, UnitClass(self.unit))]
-                if t and UnitIsPlayer(self.unit) then
-                    self.portrait:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles")
-                    self.portrait:SetTexCoord(unpack(t))
-                else
-                    self.portrait:SetTexCoord(0, 1, 0, 1)
-                end
+            -- 1. Ensure the unit frame has a valid portrait texture element and unit string
+            if not (self.portrait and self.unit) then
+                return
             end
-        end);
+
+            local _, classFilename = UnitClass(self.unit)
+
+            -- 2. Verify classFilename exists and isn't a restricted "Secret Value" userdata type
+            if classFilename and type(classFilename) == "string" and UnitIsPlayer(self.unit) then
+                -- 3. Use uppercase formatting to match standard Blizzard Atlas names without using string.lower
+                -- Blizzard keeps alternative uppercase atlas names for exact compatibility overrides
+                self.portrait:SetAtlas("CLASSICON-" .. classFilename)
+
+                -- 4. Reset the texture coordinates so the atlas isn't awkwardly cropped
+                self.portrait:SetTexCoord(0, 1, 0, 1)
+            end
+        end)
     elseif not initialLoading then
         print(L["Disabling this requires a ui reload. Try /reload, or just log out and back in again"])
     end
