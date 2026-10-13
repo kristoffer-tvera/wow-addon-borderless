@@ -1,12 +1,12 @@
-## Interface: 120005, 120007, 120100
-## Version: v12.0.7
+## Interface: 120100, 120105
+## Version: 12.1.5
 ## Title: Borderless
 ## Title-frFR: Borderless
 ## Title-deDE: Borderless
 ## Notes: Borders? No thanks.
 ## Notes-frFR: Borders? No thanks.
 ## Notes-deDE: Borders? No thanks.
-## SavedVariables: BorderlessPlayer, BorderlessTarget, BorderlessFocus, BorderlessActionbars, BorderlessMinimap, BorderlessMenu, BorderlessObjectiveTracker, BorderlessBags, BorderlessCastbar, BorderlessClassIcon, BorderlessStatusBar, BorderlessTalkingHeads
+## SavedVariables: BorderlessPlayer, BorderlessTarget, BorderlessFocus, BorderlessActionbars, BorderlessMinimap, BorderlessMenu, BorderlessObjectiveTracker, BorderlessBags, BorderlessCastbar, BorderlessMirrorbar, BorderlessTooltips, BorderlessUnitframes, BorderlessPlayerFrame, BorderlessPetFrame, BorderlessPartyFrames, BorderlessArenaFrames, BorderlessBossFrames, BorderlessTalkingHead, BorderlessStatusTrackingBarManager, BorderlessMicroMenuAndBagsBar, BorderlessEditModeManagerFrame, BorderlessCompactRaidFrameManager, BorderlessInspectFrame, BorderlessMerchantFrame, BorderlessClassTrainerFrame, BorderlessTradeSkillFrame, BorderlessQuestFrame, BorderlessFriendsFrame, BorderlessLFDParentFrame, BorderlessEncounterJournal, BorderlessAchievementFrame, BorderlessCollectionsJournal, BorderlessPVEFrame, BorderlessOrderHallMissionFrame, BorderlessGarrisonMissionFrame, BorderlessAdventuresMissionUI, BorderlessDelvesDashboardFrame, BorderlessSpellBookFrame, BorderlessProfessionsBookFrame, BorderlessWardrobeCollectionFrame, BorderlessCommunitiesFrame, BorderlessItemSocketingFrame, BorderlessDressUpFrame, BorderlessStaticPopup, BorderlessChannelFrame, BorderlessAnimaDiversionFrame, BorderlessCovenantSanctumFrame, BorderlessFlightMapFrame, BorderlessCalendarFrame, BorderlessAddonList, BorderlessBankFrame, BorderlessMailFrame
 
 ## Category-enUS: Action Bars
 ## Category-deDE: Aktionsleisten
